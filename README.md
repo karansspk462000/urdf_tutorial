@@ -32,7 +32,21 @@ Follow these steps to clone the repository and build the package:
    source install/setup.bash
 4. **Launch the launch file:**
    ```bash
-   ros2 launch urdf_tutorial robot_6_dof.launch.py 
+   ros2 launch urdf_tutorial robot_6_dof.launch.py
+   
+### Contributing
+Contributions are welcome! If you have any improvements or bug fixes, feel free to submit a pull request.
+
+### Contact
+If you have any questions, feel free to reach out:
+
+- **Email**: karansspk@gmail.com
+- **YouTube Channel**: [Subscribe for more tutorials](https://www.youtube.com/@allaboutrobo/videos)
+
+### Links
+- [ROS 2 Documentation](https://docs.ros.org/en/foxy/index.html)
+- [URDF Documentation](https://wiki.ros.org/urdf)
+
 
   
 
