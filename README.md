@@ -12,7 +12,7 @@ This repository contains the code and URDF file for simulating a 6-axis robotic 
 ### Prerequisites
 
 Before you begin, ensure you have the following installed:
-- ROS 2 Foxy Fitzroy (or a newer ROS 2 version)
+- ROS 2 Humble 
 - Colcon build tool
 - RViz 2 for visualization
 
@@ -44,7 +44,7 @@ If you have any questions, feel free to reach out:
 - **YouTube Channel**: [Subscribe for more tutorials](https://www.youtube.com/@allaboutrobo/videos)
 
 ### Links
-- [ROS 2 Documentation](https://docs.ros.org/en/foxy/index.html)
+- [ROS 2 Documentation](https://docs.ros.org/en/humble/index.html)
 - [URDF Documentation](https://wiki.ros.org/urdf)
 
 
