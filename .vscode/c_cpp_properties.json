@@ -1,0 +1,29 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/karan/ros2_ws/install/turtlebot3_gazebo/include/**",
+        "/home/karan/ros2_ws/install/turtlebot3_fake_node/include/**",
+        "/opt/ros/humble/include/**",
+        "/home/karan/ros2_ws/src/manipulator_control/include/**",
+        "/home/karan/ros2_ws/src/mobile_dd_robot/include/**",
+        "/home/karan/ros2_ws/src/turtlebot3_control/include/**",
+        "/home/karan/ros2_ws/src/turtlebot3_simulations/turtlebot3_fake_node/include/**",
+        "/home/karan/ros2_ws/src/turtlebot3_simulations/turtlebot3_gazebo/include/**",
+        "/home/karan/ros2_ws/src/urdf_tutorial/include/**",
+        "include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

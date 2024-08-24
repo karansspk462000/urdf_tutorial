@@ -1,0 +1,335 @@
+<?xml version="1.0"?>
+<robot name="six-axis" xmlns:xacro="http://www.ros.org/wiki/xacro" xmlns:ros2_control="http://www.ros.org/wiki/ros2_control">
+
+<!-- Define gray color -->
+  <material name="gray">
+   <color rgba="0.75 0.75 0.75 1.0"/>
+  </material>
+
+<!-- Define silver color -->
+<material name="silver">
+    <!-- <color rgba="0.75 0.75 0.75 1.0"/> -->
+    <color rgba="0.9 0.9 0.98 1.0"/>
+</material>
+
+<!-- Fixed Link -->
+<link name="base_link"></link>
+
+<!-- Fixed Joint -->
+<joint name="j0" type="fixed">
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+    <parent link="base_link"/>
+    <child link="l0"/>
+    <axis xyz="0.0 0.0 0.0"/>
+    <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
+</joint>
+
+<link name="l0">
+    <inertial>
+			<origin xyz="0.0 0.0 25e-03" rpy="0 0 0"/>
+			<mass value="2e+00"/>
+			<inertia
+				ixx="9.3895308e-03" ixy="0.0" ixz="1.1882474e-03"
+				iyx="0.0" iyy="1.4207390e-02" iyz="9.2874266e-06"
+				izx="1.1882474e-04"  izy="9.2874266e-06"  izz="1.7661948e-02"/>
+	</inertial>
+    <visual>
+        <geometry>
+            <cylinder radius="0.1" length="0.05"/>
+        </geometry>
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <material name="silver"/>
+    </visual>
+</link>
+
+<joint name="j1" type="revolute">
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+    <parent link="l0"/>
+    <child link="l1"/>
+    <axis xyz="0.0 0.0 1.0"/>
+    <limit lower="-${2*pi}" upper="${2*pi}" effort="0.0" velocity="0.0"/>
+</joint>
+
+<link name="l1">
+     <inertial>
+			<origin xyz="0.0 0.0 +0.25" rpy="0 0 0"/>
+			<mass value="1e+00"/>
+			<inertia 
+            ixx="1.3778118e-01" ixy="5.1395441e-06" ixz="2.1163457e-04"
+            iyx="5.1395441e-06" iyy="1.3826689e-01" iyz="1.1751288e-02" 
+            izx="2.1163457e-04" izy="1.1751288e-02" izz="3.5020186e-02"/>
+	</inertial>
+    <visual>
+        <geometry>
+            <cylinder radius="0.03" length="0.2"/>
+        </geometry>
+        <origin xyz="0.0 0.0 0.1" rpy="0.0 0.0 0.0"/>
+        <material name="silver"/>
+    </visual>
+    <!-- Add a sphere to create a curved joint -->
+    <visual>
+      <geometry>
+        <sphere radius="0.035"/>
+      </geometry>
+      <origin xyz="0.0 0.0 0.2" rpy="0.0 0.0 0.0"/>
+      <material name="gray"/>
+    </visual>
+</link>
+
+<!-- Dummy Joint -->
+<joint name="j_dummy_1_2" type="fixed">
+    <origin xyz="0.0 0.0 0.2" rpy="0.0 0.0 0.0"/>
+    <parent link="l1"/>
+    <child link="l2"/>
+</joint>
+
+<link name="l2">
+     <inertial>
+			<origin xyz="0.25 0.0 0.0" rpy="0 0 0"/> 
+			<mass value="1e+00"/>
+			<inertia
+				ixx="3.0406895e-01" ixy="5.6383979e-04" ixz="4.4113010e-01"
+				iyx="5.6383979e-04" iyy="1.9934350e+00" iyz="1.2111129e-06"
+				izx="4.4113010e-01" izy="1.2111129e-06" izz="1.7471456e+00"/>
+	</inertial>
+    <visual>
+        <geometry>
+            <cylinder radius="0.03" length="0.25"/>
+        </geometry>
+        <origin xyz="0.125 0.0 0.0" rpy="0.0 ${pi/2} 0.0"/>
+        <material name="silver"/>
+    </visual>
+    <!-- Add a sphere to create a curved joint -->
+    <visual>
+      <geometry>
+        <sphere radius="0.035"/>
+      </geometry>
+      <origin xyz="0.25 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <material name="gray"/>
+    </visual>
+</link>
+
+<joint name="j2" type="revolute">
+    <origin xyz="0.25 0.0 0.0" rpy="0.0 ${pi/2} 0.0"/>
+    <parent link="l2"/>
+    <child link="l3"/>
+    <axis xyz="0.0 0.0 1.0"/>
+    <limit lower="${-pi/2}" upper="${pi/2}" effort="0.0" velocity="0.0"/>
+</joint>
+
+
+<link name="l3">
+     <inertial>
+			<origin xyz="-0.15 0.0 0.0" rpy="0 0 0"/> 
+			<mass value="3e+00"/>
+			<inertia
+				ixx="3.1982320e-02" ixy="-1.5528529e-05" ixz="-4.8994800e-05"
+				iyx="-1.5528529e-05" iyy="2.8261283e-02" iyz="7.1406845e-03"
+				izx="-4.8994800e-05" izy="7.1406845e-03" izz="8.8063347e-03"/>
+	</inertial>
+    <visual>
+        <geometry>
+            <cylinder radius="0.03" length="0.3"/>
+        </geometry>
+        <origin xyz="-0.15 0.0 0.0 " rpy="0.0  ${pi/2} 0.0"/>
+        <material name="silver"/>
+    </visual>
+    <!-- Add a sphere to create a curved joint -->
+    <visual>
+      <geometry>
+        <sphere radius="0.035"/>
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <material name="gray"/>
+    </visual>
+</link>
+
+<joint name="j3" type="revolute">
+    <origin xyz="-0.30 0.0 0.0" rpy="0.0 0.0 0.0"/>
+    <parent link="l3"/>
+    <child link="l4"/>
+    <axis xyz="0.0 0.0 1.0"/>
+    <limit lower="${-pi/2}" upper="${pi/2}" effort="0.0" velocity="0.0"/>
+</joint>
+
+
+
+<link name="l4">
+     <inertial>
+			<origin xyz="0.0 0.0 -0.12" rpy="0 0 0"/> 
+			<mass value="1e+00"/>
+			<inertia
+				ixx="3.0406895e-01" ixy="5.6383979e-04" ixz="4.4113010e-01"
+				iyx="5.6383979e-04" iyy="1.9934350e+00" iyz="1.2111129e-06"
+				izx="4.4113010e-01" izy="1.2111129e-06" izz="1.7471456e+00"/>
+	</inertial>
+    <visual>
+        <geometry>
+            <cylinder radius="0.03" length="0.24"/>
+        </geometry>
+        <origin xyz="0.0 0.0 -0.12" rpy="0.0 0.0 0.0"/>
+        <material name="silver"/>
+    </visual>
+    <!-- Add a sphere to create a curved joint -->
+    <visual>
+      <geometry>
+        <sphere radius="0.035"/>
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <material name="gray"/>
+    </visual>
+</link>
+
+<!-- Dummy Joint -->
+<joint name="j_dummy" type="fixed">
+    <origin xyz="0.0 0.0 -0.24" rpy="0.0 0.0 0.0"/>
+    <parent link="l4"/>
+    <child link="l5"/>
+</joint>
+
+
+
+<link name="l5">
+     <inertial>
+			<origin xyz="-0.16 0.0 0.0" rpy="0.0 0.0 0.0"/> 
+			<mass value="3e+00"/>
+			<inertia
+				ixx="1.3754675e-02" ixy="-1.5528630e-05" ixz="-2.8051809e-05"
+				iyx="-1.5528630e-05" iyy="9.9916676e-03" iyz="3.9023300e-03"
+				izx="-2.8051809e-05" izy="3.9023300e-03" izz="7.6137437e-03"/>
+	</inertial>
+    <visual>
+        <geometry>
+            <cylinder radius="0.03" length="0.32"/>
+        </geometry>
+        <origin xyz="-0.16 0.0 0.0 " rpy="0.0 ${pi/2} 0.0"/>
+        <material name="silver"/>
+    </visual>
+    <!-- Add a sphere to create a curved joint -->
+    <visual>
+      <geometry>
+        <sphere radius="0.035"/>
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <material name="gray"/>
+    </visual>
+</link>
+
+<joint name="j4" type="revolute">
+    <origin xyz="-0.32 0.0 0.0" rpy="0.0 0.0 0.0"/>
+    <parent link="l5"/>
+    <child link="l6"/>
+    <axis xyz="0.0 0.0 1.0"/>
+    <limit lower="${-pi/2}" upper="${pi/2}" effort="0.0" velocity="0.0"/>
+</joint>
+
+
+
+<link name="l6">
+     <inertial>
+			 <origin xyz="0.0 0.0 0.125" rpy="0.0 0.0 0.0"/> 
+			<mass value="1e+00"/>
+			<inertia
+				ixx="9.3016047e-04" ixy="-2.9405026e-07" ixz="1.0421409e-05"
+				iyx="-2.9405026e-07" iyy="9.5021553e-04" iyz="-1.7371494e-06"
+				izx="1.0421409e-05" izy="-1.7371494e-06" izz="8.4567154e-04"/>
+	</inertial>
+    <visual>
+        <geometry>
+            <cylinder radius="0.03" length="0.25"/>
+        </geometry>
+        <origin xyz="0.0 0.0 0.125" rpy="0.0 0.0 0.0"/>
+        <material name="silver"/>
+    </visual>
+    <!-- Add a sphere to create a curved joint -->
+    <visual>
+      <geometry>
+        <sphere radius="0.035"/>
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <material name="gray"/>
+    </visual>
+</link>
+
+<joint name="j5" type="revolute">
+    <origin xyz="0.0 0.0 0.25" rpy="0.0 ${-pi/2} ${2*pi}"/>
+    <parent link="l6"/>
+    <child link="le"/>
+    <axis xyz="0.0 0.0 1.0"/>
+    <limit lower="${-pi}" upper="${pi}" effort="0.0" velocity="0.0"/>
+</joint>
+
+
+
+<link name="le">
+     <inertial>
+			 <origin xyz="0.0 0.0 0.09" rpy="0.0 0.0 0.0"/> 
+			<mass value="1e+00"/>
+			<inertia
+				ixx="9.3016047e-04" ixy="-2.9405026e-07" ixz="1.0421409e-05"
+				iyx="-2.9405026e-07" iyy="9.5021553e-04" iyz="-1.7371494e-06"
+				izx="1.0421409e-05" izy="-1.7371494e-06" izz="8.4567154e-04"/>
+	</inertial>
+    <visual>
+        <geometry>
+            <cylinder radius="0.03" length="0.18"/>
+        </geometry>
+        <origin xyz="0.0 0.0 0.09" rpy="0.0 0.0 0.0"/>
+        <material name="silver"/>
+    </visual>
+    <!-- Add a sphere to create a curved joint -->
+    <visual>
+      <geometry>
+        <sphere radius="0.035"/>
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <material name="gray"/>
+    </visual>
+</link>
+
+<joint name="j6" type="revolute">
+    <origin xyz="0.0 0.0 0.18" rpy="0.0 ${pi/2} 0.0"/>
+    <parent link="le"/>
+    <child link="le_1"/>
+    <axis xyz="0.0 0.0 1.0"/>
+    <limit lower="-${2*pi}" upper="${2*pi}" effort="0.0" velocity="0.0"/>
+</joint>
+
+<link name="le_1">
+     <inertial>
+			 <origin xyz="0.0 0.0 0.05" rpy="0.0 0.0 0.0"/> 
+			<mass value="1e+00"/>
+			<inertia
+				ixx="9.3016047e-04" ixy="-2.9405026e-07" ixz="1.0421409e-05"
+				iyx="-2.9405026e-07" iyy="9.5021553e-04" iyz="-1.7371494e-06"
+				izx="1.0421409e-05" izy="-1.7371494e-06" izz="8.4567154e-04"/>
+	</inertial>
+    <visual>
+        <geometry>
+            <cylinder radius="0.03" length="0.1"/>
+        </geometry>
+        <origin xyz="0.0 0.0 0.05 " rpy="0.0 0.0 0.0"/>
+        <material name="gray"/>
+    </visual>
+    <!-- Add a sphere to create a curved joint -->
+    <visual>
+      <geometry>
+        <sphere radius="0.035"/>
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <material name="gray"/>
+    </visual>
+</link>
+
+</robot>
+
+
+
+
+
+
+
+
+
+
+

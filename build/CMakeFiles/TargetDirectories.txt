@@ -1,0 +1,9 @@
+/home/karan/ros2_ws/src/urdf_tutorial/build/CMakeFiles/uninstall.dir
+/home/karan/ros2_ws/src/urdf_tutorial/build/CMakeFiles/urdf_tutorial_uninstall.dir
+/home/karan/ros2_ws/src/urdf_tutorial/build/CMakeFiles/test.dir
+/home/karan/ros2_ws/src/urdf_tutorial/build/CMakeFiles/edit_cache.dir
+/home/karan/ros2_ws/src/urdf_tutorial/build/CMakeFiles/rebuild_cache.dir
+/home/karan/ros2_ws/src/urdf_tutorial/build/CMakeFiles/list_install_components.dir
+/home/karan/ros2_ws/src/urdf_tutorial/build/CMakeFiles/install.dir
+/home/karan/ros2_ws/src/urdf_tutorial/build/CMakeFiles/install/local.dir
+/home/karan/ros2_ws/src/urdf_tutorial/build/CMakeFiles/install/strip.dir
