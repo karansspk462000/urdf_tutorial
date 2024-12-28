@@ -41,7 +41,7 @@ Contributions are welcome! If you have any improvements or bug fixes, feel free 
 If you have any questions, feel free to reach out:
 
 - **Email**: karansspk@gmail.com
-- **YouTube Channel**: [Subscribe for more tutorials](https://www.youtube.com/@allaboutrobo/videos)
+- **YouTube Channel**: [Subscribe for more tutorials](https://youtu.be/4oshLOIFtz4)
 
 ### Links
 - [ROS 2 Documentation](https://docs.ros.org/en/humble/index.html)
